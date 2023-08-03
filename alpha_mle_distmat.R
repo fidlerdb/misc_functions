@@ -1,7 +1,7 @@
-# This function processes the output of CooccurrenceAffinity::affinity() to produce a distance matrix 
+# This function processes the output of CooccurrenceAffinity affinity() to produce a distance matrix 
 # which can be used for ordination in a PCoA. The input data (adata argument) should represent the 
-# $all variable of the affinity() output. Column and row names correspond with the order of "species" 
-# (vegan parlance).
+# $all variable of the CooccurrenceAffinity::affinity() output. Column and row names correspond with 
+# the order of "species" (vegan parlance).
 # This function requires that data.table and magrittr are installed.
   
 alpha_mle_distmat <- function(adata){
