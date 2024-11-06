@@ -1,0 +1,23 @@
+tukey_letters <- function(x, y){
+  # group everything
+  data <- data.table::data.table(x = x, y = y)
+  
+  # Fit an anova
+  ANOVA <- stats::aov(formula = y ~ x)
+  
+  # Tukey's test
+  tukey <- stats::TukeyHSD(ANOVA)
+  
+  # compact letter display
+  cld <- multcompView::multcompLetters4(ANOVA, tukey)
+  
+  # table with factors and 3rd quantile
+  dt <- dplyr::group_by(data, x) %>%
+    dplyr::summarise(w=mean(y), sd = sd(y)) %>%
+    dplyr::arrange(dplyr::desc(w))
+
+  # extracting the compact letter display and adding to the Tk table
+  cld <- as.data.frame.list(cld$x)
+  dt$cld <- cld$Letters
+  return(dt)
+}
