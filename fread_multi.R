@@ -4,7 +4,7 @@
 # the remove_from_name argument chops part of the filename off when adding the sample column (e.g. ".csv", this can be a more complex regex)
 # Other fread arguments are accepted
 
-fread_multi <- function(path, pattern = NULL, remove_from_name, file_meaning = NULL, ...){
+fread_multi <- function(path, pattern = NULL, remove_from_name  = "", file_meaning = NULL, ...){
   
   # Ensure we can read in the data
   if(!require(data.table)){install.packages('data.table')}
