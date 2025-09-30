@@ -5,8 +5,8 @@
 # This function requires that data.table and magrittr are installed.
   
 alpha_mle_distmat <- function(adata){
-  if(!require(data.table)){require(data.table)}
-  if(!require(magrittr)){require(magrittr)}
+  if(!require(data.table))install.packages('data.table');require(data.table)}
+  if(!require(magrittr)){install.packages('magrittr');require(magrittr)}
   
   # Make the data workable
   setDT(adata)
